@@ -1,0 +1,1 @@
+export { TaskFilterIcon } from './TaskFilterIcon';

@@ -1,0 +1,107 @@
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: calc(-1 * (var(--safe-top) + var(--app-header-height) + var(--page-padding-y)))
+    calc(-1 * var(--page-padding-x)) 0;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: calc(var(--safe-top) + var(--app-header-height)) var(--page-padding-x) 28px;
+  background:
+    linear-gradient(to bottom, transparent 30%, var(--color-bg)),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-purple) 60%, transparent),
+      color-mix(in srgb, var(--color-pink) 60%, transparent)
+    );
+}
+
+.avatar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 94px;
+  height: 94px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+}
+
+
+
+.identity {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.name {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.hint {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-hot);
+  text-align: center;
+}
+
+.card {
+  margin: 0 var(--page-padding-x);
+  padding: 20px 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(var(--nav-bg), var(--nav-bg)) padding-box,
+    var(--nav-border-gradient) border-box;
+  background-origin: border-box;
+  box-shadow: var(--nav-shadow);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--color-border);
+}
+
+.value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.caption {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}

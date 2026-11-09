@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-hot);
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: auto;
+  padding: 12px 0 calc(var(--safe-bottom) + 16px);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-sheet-bg);
+}

@@ -1,0 +1,44 @@
+.button {
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button[data-size='md'] {
+  padding: 13px 19px;
+  font-size: 16px;
+}
+
+.button[data-size='sm'] {
+  padding: 5px 9px;
+  font-size: 13px;
+}
+
+.button[data-variant='primary'] {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+}
+
+.button[data-variant='ghost'] {
+  background:
+    linear-gradient(var(--nav-bg), var(--nav-bg)) padding-box,
+    var(--nav-border-gradient) border-box;
+  background-origin: border-box;
+  box-shadow: var(--nav-shadow);
+  color: var(--color-text-muted);
+}
+
+.button[data-variant='danger'] {
+  background: var(--color-hot);
+  color: #ffffff;
+}
+
+.button[data-full-width='true'] {
+  width: 100%;
+}

@@ -1,0 +1,1 @@
+export { applyInlineMark, applyLink, insertPlainText } from './noteInline';

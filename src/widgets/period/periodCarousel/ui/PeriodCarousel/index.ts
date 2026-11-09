@@ -1,0 +1,1 @@
+export { PeriodCarousel } from './PeriodCarousel';

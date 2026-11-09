@@ -1,0 +1,60 @@
+.create {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px var(--page-padding-x);
+}
+
+.hint {
+  margin: 0;
+  padding: 0 var(--page-padding-x);
+  font-size: 13px;
+  color: var(--color-hot);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 16px var(--page-padding-x) 0;
+}
+
+.chipRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+}
+
+.chipLabel {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--color-control-bg);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

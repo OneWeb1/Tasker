@@ -1,0 +1,1 @@
+export { pluralizeDays } from './pluralizeDays';

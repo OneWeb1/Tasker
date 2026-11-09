@@ -1,0 +1,1 @@
+export { buildCategoryCopyTitle } from './buildCategoryCopyTitle';

@@ -1,0 +1,1 @@
+export { isNoteArchived } from './noteArchive';

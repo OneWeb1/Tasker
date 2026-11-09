@@ -1,0 +1,1 @@
+export { PeriodDots } from './PeriodDots';

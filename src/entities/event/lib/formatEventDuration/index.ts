@@ -1,0 +1,1 @@
+export { formatEventDuration } from './formatEventDuration';

@@ -1,0 +1,1 @@
+export { countOccurrencesBefore } from './selectionOccurrence';

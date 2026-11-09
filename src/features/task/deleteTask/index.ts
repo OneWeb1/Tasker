@@ -1,0 +1,1 @@
+export { useDeleteTask } from './model/hooks/useDeleteTask';

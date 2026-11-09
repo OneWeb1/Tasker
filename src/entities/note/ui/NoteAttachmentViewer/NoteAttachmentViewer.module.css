@@ -1,0 +1,49 @@
+.viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: calc(100dvh - var(--app-header-height) - var(--safe-top) - var(--safe-bottom) - 24px);
+  padding: 8px var(--page-padding-x);
+}
+
+.viewer[data-zoomed='true'] {
+  overflow: hidden;
+}
+
+.zoomable {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  object-fit: contain;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  will-change: transform;
+}
+
+.zoomable[data-zoomed='true'] {
+  touch-action: none;
+}
+
+.file {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.download {
+  padding: 14px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}

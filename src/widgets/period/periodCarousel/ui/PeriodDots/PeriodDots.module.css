@@ -1,0 +1,96 @@
+.dots {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: color-mix(in srgb, color-mix(in srgb, var(--color-bg) 95%, white) 50%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.viewport {
+  box-sizing: border-box;
+  margin-inline: calc(-1 * var(--viewport-overflow, 0px));
+  padding-inline: var(--viewport-overflow, 0px);
+  overflow: hidden;
+}
+
+.track {
+  position: relative;
+  display: flex;
+  will-change: transform;
+  transition: transform var(--settle-duration) var(--settle-easing);
+}
+
+.track[data-dragging='true'] {
+  transition: none;
+}
+
+.dot {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(var(--dot-scale, 1));
+  transition: transform var(--settle-duration) var(--settle-easing);
+}
+
+.track[data-dragging='true'] .dot::before {
+  transition: none;
+}
+
+.defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.goo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin-block: auto;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.goo[data-settling='true'] .blob {
+  transition:
+    transform var(--settle-duration) var(--settle-easing),
+    opacity var(--settle-duration) var(--settle-easing);
+}
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .blob,
+  .dot::before {
+    transition-duration: 0.01ms;
+  }
+}

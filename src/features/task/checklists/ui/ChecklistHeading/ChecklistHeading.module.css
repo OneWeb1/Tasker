@@ -1,0 +1,13 @@
+.head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.count {
+  flex-shrink: 0;
+  font-size: 19px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}

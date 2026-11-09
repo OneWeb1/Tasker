@@ -1,0 +1,10 @@
+export const LONG_PRESS_MS = 380;
+export const MOVE_TOLERANCE = 8;
+export const CLICK_GUARD_MS = 400;
+export const DOUBLE_TAP_MS = 300;
+export const DOUBLE_TAP_DISTANCE = 24;
+export const HANDLE_TOUCH_OFFSET = 24;
+export const HAPTIC_MS = 8;
+export const AUTOSCROLL_EDGE = 50;
+export const AUTOSCROLL_MAX_SPEED = 18;
+export const WORD_CHAR = /[\p{L}\p{N}_'’-]/u;

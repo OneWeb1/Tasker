@@ -1,0 +1,50 @@
+.stage {
+  position: relative;
+  margin-inline: calc(-1 * var(--page-padding-x));
+  padding-inline: var(--page-padding-x);
+  overflow-x: clip;
+}
+
+.shift {
+  position: relative;
+  will-change: transform;
+}
+
+.slot[data-role='current'] {
+  position: relative;
+  z-index: 1;
+}
+
+.slot[data-role='neighbor'] {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.slot[data-side='next'] {
+  transform: translateX(calc(100% + var(--page-gap, 0px)));
+}
+
+.slot[data-side='prev'] {
+  transform: translateX(calc(-100% - var(--page-gap, 0px)));
+}
+
+.slot[data-role='neighbor'] [data-period-fixed] {
+  visibility: hidden;
+}
+
+.shift[data-period-settling='true'] .slot[data-role='neighbor'] {
+  transition: opacity var(--settle-duration) var(--settle-easing);
+}
+
+.shift[data-period-settling='true'] .slot[data-role='neighbor'] [data-horizontal-swipe] {
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shift[data-period-settling='true'] .slot[data-role='neighbor'] {
+    transition-duration: 0.01ms;
+  }
+}

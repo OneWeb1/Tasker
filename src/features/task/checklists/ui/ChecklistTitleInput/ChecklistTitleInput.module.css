@@ -1,0 +1,24 @@
+.input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  height: var(--line, 22px);
+  line-height: var(--line, 22px);
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.input:focus-visible {
+  outline: none;
+}

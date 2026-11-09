@@ -1,0 +1,1 @@
+export { guardTableCell, insertTableBlocks, moveTableCell, splitTableRow } from './noteTable';

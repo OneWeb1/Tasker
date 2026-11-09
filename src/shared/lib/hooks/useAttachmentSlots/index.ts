@@ -1,0 +1,1 @@
+export { useAttachmentSlots } from './useAttachmentSlots';

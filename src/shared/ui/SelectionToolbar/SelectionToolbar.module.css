@@ -1,0 +1,93 @@
+.bar {
+  position: fixed;
+  right: 0;
+  bottom: calc(var(--safe-bottom) + 12px);
+  left: 0;
+  z-index: 100;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--app-max-width);
+  padding: 0 var(--page-padding-x);
+  margin: 0 auto;
+  animation: bar-in 0.25s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.pill {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: var(--bottom-nav-pill-height);
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(var(--nav-bg), var(--nav-bg)) padding-box,
+    var(--nav-border-gradient) border-box;
+  background-origin: border-box;
+  box-shadow: var(--nav-shadow);
+}
+
+.count {
+  flex: 1;
+  min-width: 0;
+  padding: 0 8px;
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.button[data-variant='close'] {
+  background: var(--color-control-bg);
+}
+
+.button[data-variant='danger'] {
+  color: var(--color-hot);
+}
+
+.button:active:not(:disabled) {
+  background: var(--color-control-bg);
+}
+
+.button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@keyframes bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+  }
+}

@@ -1,0 +1,128 @@
+.chips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+}
+
+.label {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: var(--color-text-muted);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  max-width: 70%;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--color-control-bg);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.dates {
+  max-width: calc(100% - 64px);
+}
+
+.dates svg {
+  flex: none;
+}
+
+.text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip[data-tone='active'] {
+  background: color-mix(in srgb, var(--color-other) 30%, var(--color-bg));
+  color: var(--color-text);
+}
+
+.chip[data-tone='done'] {
+  background: color-mix(in srgb, var(--color-growth) 30%, var(--color-bg));
+  color: var(--color-text);
+}
+
+.chip[data-tone='postponed'] {
+  background: color-mix(in srgb, var(--color-orange) 30%, var(--color-bg));
+  color: var(--color-text);
+}
+
+.chip[data-priority='low'] {
+  color: var(--color-growth);
+}
+
+.chip[data-priority='medium'] {
+  color: var(--color-yellow);
+}
+
+.chip[data-priority='high'] {
+  color: var(--color-hot);
+}
+
+.chip[data-static='true'] {
+  font-weight: 500;
+  cursor: default;
+}
+
+.row[data-changed='true'] {
+  align-items: flex-start;
+}
+
+.row[data-changed='true'] .label {
+  padding-top: 9px;
+}
+
+.changes {
+  --diff-sign-height: 36px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 0;
+  max-width: 70%;
+}
+
+.change {
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.change .chip {
+  max-width: 100%;
+}
+
+.change[data-diff='added'] .chip {
+  color: var(--color-text);
+}
+
+.change[data-diff='removed'] .text {
+  text-decoration: line-through;
+}

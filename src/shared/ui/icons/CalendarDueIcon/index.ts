@@ -1,0 +1,1 @@
+export { CalendarDueIcon } from './CalendarDueIcon';

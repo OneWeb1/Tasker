@@ -1,0 +1,1 @@
+export { useDeleteCategory } from './model/hooks/useDeleteCategory';

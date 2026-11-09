@@ -1,0 +1,1 @@
+export { expandToWord } from './wordRange';

@@ -1,0 +1,80 @@
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 56px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(var(--nav-bg), var(--nav-bg)) padding-box,
+    var(--nav-border-gradient) border-box;
+  background-origin: border-box;
+  box-shadow: var(--nav-shadow);
+  color: var(--color-text);
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  transition: transform 0.15s ease;
+}
+
+.item + .item {
+  margin-top: 8px;
+}
+
+.item:active {
+  transform: scale(0.98);
+}
+
+[data-menu-group] > .item {
+  border-width: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: background-color 0.15s ease;
+}
+
+[data-menu-group] > .item + .item {
+  margin-top: 0;
+}
+
+[data-menu-group] > .item + .item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 12px;
+  left: 52px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+[data-menu-group] > .item:active {
+  transform: none;
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+.item[data-variant='danger'] {
+  color: var(--color-hot);
+}
+
+.item[data-selected='true'] {
+  color: var(--color-primary-accent);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.trailing {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-left: auto;
+}

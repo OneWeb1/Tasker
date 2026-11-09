@@ -1,0 +1,1 @@
+export { mergeTranscript } from './mergeTranscript';

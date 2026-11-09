@@ -1,0 +1,1 @@
+export { BoldIcon } from './BoldIcon';

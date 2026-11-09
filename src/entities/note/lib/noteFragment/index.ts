@@ -1,0 +1,1 @@
+export { replaceNoteFragment } from './noteFragment';

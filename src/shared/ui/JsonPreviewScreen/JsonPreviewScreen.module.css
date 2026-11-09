@@ -1,0 +1,15 @@
+.text {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px var(--page-padding-x);
+  color: var(--color-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.text[data-invalid='true'] {
+  color: var(--color-hot);
+}

@@ -1,0 +1,1 @@
+export { animateValue } from './animateValue';

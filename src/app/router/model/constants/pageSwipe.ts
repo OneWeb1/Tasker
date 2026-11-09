@@ -1,0 +1,9 @@
+export const AXIS_LOCK_DISTANCE = 6;
+export const DISTANCE_RATIO = 0.25;
+export const FLICK_VELOCITY = 0.5;
+export const MIN_FLICK_DISTANCE = 16;
+export const MIN_COMMIT_VELOCITY = 0.9;
+export const COMMIT_MIN_MS = 180;
+export const COMMIT_MAX_MS = 320;
+export const RETURN_MS = 240;
+export const FALLBACK_MS = 600;

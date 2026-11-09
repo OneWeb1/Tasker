@@ -1,0 +1,45 @@
+.panel {
+  --diff-sign-top: 24px;
+  --diff-sign-height: 32px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px var(--page-padding-x) 0;
+}
+
+.panel[data-diff='removed'] .title {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.title {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  field-sizing: content;
+  font: inherit;
+  font-size: 21px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.title:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.scrim {
+  position: fixed;
+  inset: calc(var(--app-header-height) + var(--safe-top)) 0 0 0;
+  z-index: 1;
+  padding: 0;
+  border: 0;
+  background: rgb(0 0 0 / 0.65);
+  touch-action: none;
+}

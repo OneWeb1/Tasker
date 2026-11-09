@@ -1,0 +1,1 @@
+export { AttachmentIcon } from './AttachmentIcon';

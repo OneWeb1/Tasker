@@ -1,0 +1,13 @@
+.tab {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+.feed {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+}

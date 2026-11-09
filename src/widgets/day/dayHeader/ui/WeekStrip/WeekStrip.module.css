@@ -1,0 +1,74 @@
+.viewport {
+  --day-pill-width: 40px;
+
+  overflow: hidden;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.track {
+  position: relative;
+  display: flex;
+}
+
+.track[data-settling='true'] {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.track[data-moving='false'] .week[data-current='false'] {
+  visibility: hidden;
+}
+
+:global([data-day-swiping='true']) .track[data-moving='false'] .week[data-current='false'] {
+  visibility: visible;
+}
+
+:global([data-swipe-settling='true']) .track:not([data-settling='true']) {
+  transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.week {
+  display: grid;
+  flex: 0 0 100%;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: calc(100% / 7);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.indicator::before {
+  content: '';
+  box-sizing: border-box;
+  width: var(--day-pill-width);
+  border: 2px solid var(--color-primary-accent);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-primary-accent) 10%, transparent);
+}
+
+.indicator {
+  left: calc(100% + var(--day-index, 0) * 100% / 7);
+  transform: translate3d(calc(var(--step-swipe, 0) * -100%), 0, 0);
+}
+
+
+
+:global([data-swipe-settling='true']) .indicator {
+  transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global([data-swipe-settling='true']) .track:not([data-settling='true']),
+  :global([data-swipe-settling='true']) .indicator {
+    transition: none;
+  }
+}

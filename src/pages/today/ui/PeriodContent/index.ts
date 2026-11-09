@@ -1,0 +1,1 @@
+export { PeriodContent } from './PeriodContent';

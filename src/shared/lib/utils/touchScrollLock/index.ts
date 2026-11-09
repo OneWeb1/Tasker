@@ -1,0 +1,1 @@
+export { lockTouchScroll } from './touchScrollLock';

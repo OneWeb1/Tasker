@@ -1,0 +1,44 @@
+.control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.time,
+.reset {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  border: 0;
+  background: var(--color-control-bg);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.time {
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.time[data-running='true'] {
+  background: color-mix(in srgb, var(--color-growth) 30%, var(--color-bg));
+}
+
+.reset {
+  width: 36px;
+  padding: 0;
+  border-radius: 12px;
+  color: var(--color-text-muted);
+}
+
+.time:focus-visible,
+.reset:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

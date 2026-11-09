@@ -1,0 +1,1 @@
+export { useRenameCategory } from './model/hooks/useRenameCategory';

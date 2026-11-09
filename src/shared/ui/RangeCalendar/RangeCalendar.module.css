@@ -1,0 +1,129 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.title {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.titleButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.titleButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.chevron {
+  transition: transform 0.2s;
+}
+
+.titleButton[data-open='true'] .chevron {
+  transform: rotate(180deg);
+}
+
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: calc(var(--safe-bottom) + 4px);
+}
+
+.prev {
+  transform: rotate(180deg);
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cell:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.cell[data-outside='true'] {
+  color: var(--color-text-muted);
+}
+
+.cell[data-in-range='true'] {
+  background: var(--color-control-bg);
+}
+
+.cell[data-range-start='true'] {
+  background: linear-gradient(to right, transparent 50%, var(--color-control-bg) 50%);
+}
+
+.cell[data-range-end='true'] {
+  background: linear-gradient(to left, transparent 50%, var(--color-control-bg) 50%);
+}
+
+.cell:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cell[data-today='true'] .day {
+  box-shadow: inset 0 0 0 1px var(--color-text-muted);
+}
+
+.day[data-selected='true'] {
+  background: var(--color-primary);
+  color: var(--color-primary-contrast);
+  box-shadow: none;
+}

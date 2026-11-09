@@ -1,0 +1,1 @@
+export { SnowflakeIcon } from './SnowflakeIcon';

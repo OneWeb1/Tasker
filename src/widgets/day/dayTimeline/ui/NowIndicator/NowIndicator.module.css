@@ -1,0 +1,44 @@
+.now {
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--timeline-column-gap, 8px);
+  height: 0;
+  color: var(--color-primary-accent);
+  pointer-events: none;
+}
+
+.now[data-inset='true'] {
+  left: calc(-1 * (var(--timeline-label-width, 48px) + var(--timeline-column-gap, 8px)));
+}
+
+.time {
+  position: relative;
+  flex: none;
+  width: var(--timeline-label-width, 48px);
+  font-size: 10px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  transform: translateX(-10px);
+}
+
+.time::before {
+  content: '';
+  position: absolute;
+  inset: -2px -4px;
+  z-index: -1;
+  border-radius: 4px;
+  background: var(--color-bg);
+}
+
+.line {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  margin-top: -1px;
+  background: currentColor;
+}

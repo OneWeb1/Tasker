@@ -1,0 +1,1 @@
+export { getPeriodStyle } from './periodStyle';

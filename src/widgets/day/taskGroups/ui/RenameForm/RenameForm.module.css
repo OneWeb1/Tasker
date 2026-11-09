@@ -1,0 +1,15 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.head {
+  padding: 16px var(--page-padding-x);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 16px var(--page-padding-x) 0;
+}
+

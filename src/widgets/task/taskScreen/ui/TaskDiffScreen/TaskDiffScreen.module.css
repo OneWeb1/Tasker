@@ -1,0 +1,34 @@
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 12px var(--page-padding-x);
+  background: var(--color-control-bg);
+  font-size: 14px;
+}
+
+.summaryText {
+  font-weight: 700;
+}
+
+.legend {
+  display: flex;
+  gap: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.legend [data-diff='added'] {
+  color: var(--color-growth);
+}
+
+.legend [data-diff='removed'] {
+  color: var(--color-hot);
+}
+
+.legend [data-diff='changed'] {
+  color: var(--color-primary-accent);
+}

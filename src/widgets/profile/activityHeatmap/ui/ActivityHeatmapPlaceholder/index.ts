@@ -1,0 +1,1 @@
+export { ActivityHeatmapPlaceholder } from './ActivityHeatmapPlaceholder';

@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.fields {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field {
+  width: 88px;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: var(--color-control-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 38px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.field[aria-pressed='true'] {
+  border-color: var(--color-primary-accent);
+}
+
+.field:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.colon {
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.footer {
+  width: 100%;
+  padding-top: 8px;
+}

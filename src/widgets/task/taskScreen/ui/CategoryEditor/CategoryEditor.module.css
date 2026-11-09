@@ -1,0 +1,32 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px var(--page-padding-x);
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--category-solid);
+}
+
+.error {
+  margin: 0;
+  padding: 0 var(--page-padding-x);
+  font-size: 13px;
+  color: var(--color-hot);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 16px var(--page-padding-x) 0;
+}

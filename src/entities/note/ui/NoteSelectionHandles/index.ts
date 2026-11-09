@@ -1,0 +1,1 @@
+export { NoteSelectionHandles } from './NoteSelectionHandles';

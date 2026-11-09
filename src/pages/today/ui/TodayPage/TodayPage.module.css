@@ -1,0 +1,48 @@
+.page {
+  --page-top-offset: calc(var(--safe-top) + var(--app-header-height) + var(--page-padding-y));
+
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - var(--bottom-nav-height) - var(--safe-bottom) - 24px);
+  margin: calc(-1 * var(--page-top-offset)) calc(-1 * var(--page-padding-x)) 0;
+  padding-top: var(--page-top-offset);
+  background: var(--color-screen-header-bg);
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 var(--page-padding-x) 16px;
+}
+
+.body {
+  --section-gap: 16px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px var(--page-padding-x) 0;
+  border-radius: 28px 28px 0 0;
+  background: var(--color-bg);
+}
+
+.customize {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--color-screen-header-bg) 95%, white);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.customize:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

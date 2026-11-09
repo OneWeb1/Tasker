@@ -1,0 +1,1 @@
+export { RedoIcon } from './RedoIcon';

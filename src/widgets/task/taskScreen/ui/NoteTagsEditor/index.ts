@@ -1,0 +1,1 @@
+export { NoteTagsEditor } from './NoteTagsEditor';

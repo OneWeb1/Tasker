@@ -1,0 +1,1 @@
+export { RestoreIcon } from './RestoreIcon';

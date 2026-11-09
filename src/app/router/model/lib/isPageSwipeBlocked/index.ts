@@ -1,0 +1,1 @@
+export { isPageSwipeBlocked } from './isPageSwipeBlocked';

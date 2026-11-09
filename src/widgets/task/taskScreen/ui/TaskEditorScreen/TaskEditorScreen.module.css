@@ -1,0 +1,65 @@
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.swipe {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  overflow-x: clip;
+  touch-action: pan-y;
+}
+
+.swipe[data-settling='true'] {
+  transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.content[data-motion='forward'] {
+  animation: mode-in-forward 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.content[data-motion='backward'] {
+  animation: mode-in-backward 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes mode-in-forward {
+  from {
+    opacity: 0;
+    transform: translateX(32%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mode-in-backward {
+  from {
+    opacity: 0;
+    transform: translateX(-32%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .content[data-motion] {
+    animation: none;
+  }
+
+  .swipe[data-settling='true'] {
+    transition-duration: 0.01ms;
+  }
+}

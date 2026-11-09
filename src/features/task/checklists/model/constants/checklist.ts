@@ -1,0 +1,2 @@
+export const CHECKLIST_TITLE_MAX_LENGTH = 60;
+export const CHECKLIST_AUTO_ADD_DELAY_MS = 380;

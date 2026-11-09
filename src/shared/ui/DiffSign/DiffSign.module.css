@@ -1,0 +1,47 @@
+.sign {
+  position: absolute;
+  z-index: 1;
+  top: var(--diff-sign-top, 0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--diff-sign-height, 44px);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 16px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.sign[data-placement='gutter'] {
+  inset-inline-start: calc(-1 * (var(--diff-gutter, var(--page-padding-x)) + var(--diff-sign-offset, 0px)));
+  width: var(--diff-gutter, var(--page-padding-x));
+}
+
+.sign[data-placement='corner'] {
+  top: 6px;
+  inset-inline-end: 10px;
+  height: 24px;
+}
+
+.sign[data-diff='added'] {
+  color: var(--color-growth);
+}
+
+.sign[data-diff='removed'] {
+  color: var(--color-hot);
+}
+
+.sign[data-diff='changed'] {
+  color: var(--color-primary-accent);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

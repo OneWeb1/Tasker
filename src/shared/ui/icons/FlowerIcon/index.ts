@@ -1,0 +1,1 @@
+export { FlowerIcon } from './FlowerIcon';

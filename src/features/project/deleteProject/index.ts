@@ -1,0 +1,1 @@
+export { useDeleteProject } from './model/hooks/useDeleteProject';

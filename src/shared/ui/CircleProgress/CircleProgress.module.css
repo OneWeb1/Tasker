@@ -1,0 +1,54 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.track,
+.indicator {
+  fill: none;
+  stroke-width: 4;
+}
+
+.track {
+  stroke: color-mix(in srgb, var(--color-text) 12%, transparent);
+}
+
+.indicator {
+  stroke: var(--color-primary-accent);
+  stroke-linecap: round;
+  transition:
+    stroke-dashoffset 0.4s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0s;
+}
+
+.indicator[data-empty='true'] {
+  opacity: 0;
+  transition:
+    stroke-dashoffset 0.4s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 0s linear 0.4s;
+}
+
+.content {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator {
+    transition: none;
+  }
+}

@@ -1,0 +1,1 @@
+export { buildActivityGrid, getActivityRange } from './buildActivityGrid';

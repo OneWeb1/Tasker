@@ -1,0 +1,1 @@
+export { filterSearchEntries } from './filterSearchEntries';

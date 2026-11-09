@@ -1,0 +1,1 @@
+export { ScissorsIcon } from './ScissorsIcon';

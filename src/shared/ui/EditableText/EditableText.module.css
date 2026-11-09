@@ -1,0 +1,33 @@
+.text {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: inherit;
+  resize: none;
+  overflow-wrap: anywhere;
+}
+
+.text::placeholder {
+  color: var(--color-text-muted);
+}
+
+.text:focus-visible {
+  outline: none;
+}
+
+.text[data-variant='title'] {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.text[data-variant='description'] {
+  min-height: 112px;
+  font-size: 17px;
+  line-height: 1.5;
+}

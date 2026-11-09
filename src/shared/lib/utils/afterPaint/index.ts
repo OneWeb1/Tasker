@@ -1,0 +1,1 @@
+export { afterPaint } from './afterPaint';

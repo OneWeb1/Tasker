@@ -1,0 +1,9 @@
+.viewport {
+  position: fixed;
+  right: 0;
+  bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 12px);
+  left: 0;
+  z-index: 200;
+  height: 0;
+  pointer-events: none;
+}

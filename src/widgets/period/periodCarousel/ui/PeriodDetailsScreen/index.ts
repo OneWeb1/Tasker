@@ -1,0 +1,1 @@
+export { PeriodDetailsScreen } from './PeriodDetailsScreen';

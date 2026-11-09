@@ -1,0 +1,1 @@
+export { isGesturesLocked, lockGestures } from './gestureLock';

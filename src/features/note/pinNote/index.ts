@@ -1,0 +1,1 @@
+export { usePinNote } from './model/hooks/usePinNote';

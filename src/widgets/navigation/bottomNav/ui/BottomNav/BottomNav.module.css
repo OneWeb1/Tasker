@@ -1,0 +1,62 @@
+.nav {
+  position: fixed;
+  bottom: calc(var(--safe-bottom) + 4px);
+  right: 0;
+  left: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  max-width: var(--app-max-width);
+  padding: 0 var(--page-padding-x);
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.pill {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  gap: 0;
+  min-width: 0;
+  height: var(--bottom-nav-pill-height);
+  padding: 4px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(var(--nav-bg), var(--nav-bg)) padding-box,
+    var(--nav-border-gradient) border-box;
+  background-origin: border-box;
+  -webkit-backdrop-filter: var(--nav-blur);
+  backdrop-filter: var(--nav-blur);
+  box-shadow: var(--nav-shadow);
+  pointer-events: auto;
+}
+
+.nav[data-role='exit'] * {
+  pointer-events: none;
+}
+
+.indicator {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 52px;
+  height: 28px;
+  border-radius: 14px;
+  background: var(--color-primary-accent);
+  pointer-events: none;
+}
+
+.indicator[data-animate='true'] {
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.indicator[data-visible='false'] {
+  opacity: 0;
+}

@@ -1,0 +1,1 @@
+export { readAvatarFile } from './avatarImage';

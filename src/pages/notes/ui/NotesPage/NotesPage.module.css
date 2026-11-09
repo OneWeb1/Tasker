@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(
+    100dvh - var(--safe-top) - var(--app-header-height) - var(--page-padding-y) -
+      var(--bottom-nav-height) - var(--safe-bottom) - 24px
+  );
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

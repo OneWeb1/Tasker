@@ -1,0 +1,91 @@
+.viewport {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.viewport[data-moving='true'] {
+  overflow-x: clip;
+}
+
+.panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.swipe {
+  position: relative;
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-y: clip;
+  touch-action: pan-y;
+}
+
+.swipe > * {
+  grid-area: 1 / 1;
+  min-width: 0;
+}
+
+.swipe[data-settling='true'] {
+  transition: transform 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.neighbor {
+  position: absolute;
+  inset: 0 0 auto 0;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.neighbor[data-side='next'] {
+  transform: translateX(calc(100% + var(--swipe-gap, 0px)));
+}
+
+.neighbor[data-side='prev'] {
+  transform: translateX(calc(-100% - var(--swipe-gap, 0px)));
+}
+
+.panel[data-motion='forward'] {
+  animation: tab-in-forward 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.panel[data-motion='backward'] {
+  animation: tab-in-backward 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@keyframes tab-in-forward {
+  from {
+    opacity: 0;
+    transform: translateX(32%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes tab-in-backward {
+  from {
+    opacity: 0;
+    transform: translateX(-32%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel[data-motion] {
+    animation: none;
+  }
+
+  .swipe[data-settling='true'] {
+    transition-duration: 0.01ms;
+  }
+}

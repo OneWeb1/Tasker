@@ -1,0 +1,1 @@
+export { TextFormatIcon } from './TextFormatIcon';

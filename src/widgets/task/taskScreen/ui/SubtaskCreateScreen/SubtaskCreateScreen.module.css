@@ -1,0 +1,15 @@
+.head {
+  composes: head from '../ItemEditor/ItemEditor.module.css';
+}
+
+.description {
+  composes: description from '../ItemEditor/ItemEditor.module.css';
+}
+
+.section {
+  composes: section from '../ItemEditor/ItemEditor.module.css';
+}
+
+.footer {
+  composes: footer from '../ItemEditor/ItemEditor.module.css';
+}

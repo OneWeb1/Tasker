@@ -1,0 +1,159 @@
+:root {
+  color-scheme: light;
+
+  --color-bg: #ffffff;
+  --color-surface: #f4f4f6;
+  --color-text: #12151c;
+  --color-text-muted: #7a808c;
+  --color-border: #e3e5ea;
+  --color-primary: #12151c;
+  --color-primary-contrast: #ffffff;
+  --color-primary-accent: #6d4aff;
+  --color-primary-accent-bg: #ebe6ff;
+
+  --color-sheet-bg: #ffffff;
+  --color-screen-header-bg: #f7f7f9;
+  --color-control-bg: #f1f2f5;
+  --color-toggle-off: #d5d8de;
+
+  --selected-surface:
+    linear-gradient(var(--nav-bg), var(--nav-bg)) padding-box,
+    var(--nav-border-gradient) border-box;
+
+  --nav-bg: rgb(255 255 255 / 0.72);
+  --nav-blur: blur(16px) saturate(1.6);
+  --nav-border-gradient: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0.2) 0%,
+    rgb(0 0 0 / 0.07) 30%,
+    rgb(0 0 0 / 0.03) 50%,
+    rgb(0 0 0 / 0.07) 70%,
+    rgb(0 0 0 / 0.16) 100%
+  );
+    --nav-shadow: 0 8px 24px rgb(0 0 0 / 0.12), inset 0 1px 0 rgb(255 255 255 / 0.6);
+
+  --color-hot: #e5412d;
+  --color-hot-bg: #fbdcd5;
+  --color-growth: #3a9d2f;
+  --color-growth-bg: #e0f0d0;
+  --color-other: #4f7bc0;
+  --color-other-bg: #dfe7f5;
+  --color-purple: #8b5cf6;
+  --color-purple-bg: #ece6fb;
+  --color-orange: #f08a24;
+  --color-orange-bg: #fbe8d2;
+  --color-pink: #e0529c;
+  --color-pink-bg: #fadcec;
+  --color-teal: #1fa39a;
+  --color-teal-bg: #d4f0ed;
+  --color-yellow: #d9a406;
+  --color-yellow-bg: #faf0cc;
+
+  --activity-0: #e4e6eb;
+  --activity-1: color-mix(in srgb, var(--color-primary-accent) 28%, var(--activity-0));
+  --activity-2: color-mix(in srgb, var(--color-primary-accent) 50%, var(--activity-0));
+  --activity-3: color-mix(in srgb, var(--color-primary-accent) 70%, var(--activity-0));
+  --activity-4: color-mix(in srgb, var(--color-primary-accent) 88%, var(--activity-0));
+  --activity-5: var(--color-primary-accent);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  --app-max-width: 480px;
+  --app-header-height: 56px;
+  --bottom-nav-pill-height: 58px;
+  --bottom-nav-height: 78px;
+  --page-padding-x: 16px;
+  --page-padding-y: 16px;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-bg: #101010;
+  --color-surface: #161a22;
+  --color-text: #f5f7fa;
+  --color-text-muted: #8b92a0;
+  --color-border: #262b36;
+  --color-primary: #f5f7fa;
+  --color-primary-contrast: #0a0c10;
+  --color-primary-accent-bg: #2a2447;
+
+  --color-sheet-bg: #121212;
+  --color-screen-header-bg: #1a1a1a;
+  --color-control-bg: #222222;
+  --color-toggle-off: #3a3a3a;
+
+  --nav-bg: rgb(22 22 22 / 0.72);
+  --nav-border-gradient: linear-gradient(
+    90deg,
+    #3c3c3c 0%,
+    rgb(60 60 60 / 0.3) 30%,
+    rgb(60 60 60 / 0.03) 50%,
+    rgb(60 60 60 / 0.3) 70%,
+    #3c3c3c 100%
+  );
+    --nav-shadow: 0 10px 30px rgb(0 0 0 / 0.5), inset 0 1px 0 rgb(255 255 255 / 0.05);
+
+  --color-hot-bg: #4a2420;
+  --color-growth-bg: #22381d;
+  --color-other-bg: #1f2a40;
+  --color-purple-bg: #2b2340;
+  --color-orange-bg: #3f2c17;
+  --color-pink-bg: #40222f;
+  --color-teal-bg: #173a38;
+  --color-yellow-bg: #3a3217;
+
+  --activity-0: #2c2c2e;
+  --activity-1: color-mix(in srgb, var(--color-primary-accent) 30%, var(--activity-0));
+  --activity-2: color-mix(in srgb, var(--color-primary-accent) 50%, var(--activity-0));
+  --activity-3: color-mix(in srgb, var(--color-primary-accent) 70%, var(--activity-0));
+  --activity-4: color-mix(in srgb, var(--color-primary-accent) 90%, var(--activity-0));
+  --activity-5: color-mix(in srgb, var(--color-primary-accent) 70%, #ffffff);
+}
+
+[data-color='red'] {
+  --category-solid: var(--color-hot);
+  --category-soft: var(--color-hot-bg);
+}
+
+[data-color='green'] {
+  --category-solid: var(--color-growth);
+  --category-soft: var(--color-growth-bg);
+}
+
+[data-color='blue'] {
+  --category-solid: var(--color-other);
+  --category-soft: var(--color-other-bg);
+}
+
+[data-color='purple'] {
+  --category-solid: var(--color-purple);
+  --category-soft: var(--color-purple-bg);
+}
+
+[data-color='orange'] {
+  --category-solid: var(--color-orange);
+  --category-soft: var(--color-orange-bg);
+}
+
+[data-color='pink'] {
+  --category-solid: var(--color-pink);
+  --category-soft: var(--color-pink-bg);
+}
+
+[data-color='teal'] {
+  --category-solid: var(--color-teal);
+  --category-soft: var(--color-teal-bg);
+}
+
+[data-color='yellow'] {
+  --category-solid: var(--color-yellow);
+  --category-soft: var(--color-yellow-bg);
+}

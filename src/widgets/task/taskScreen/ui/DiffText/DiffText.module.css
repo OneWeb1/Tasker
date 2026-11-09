@@ -1,0 +1,43 @@
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.line {
+  position: relative;
+}
+
+.line[data-variant='title'] {
+  --diff-sign-height: 25px;
+}
+
+.line[data-variant='description'] {
+  --diff-sign-height: 26px;
+}
+
+.copy {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.copy[data-variant='title'] {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.copy[data-variant='description'] {
+  font-size: 17px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.copy[data-empty='true'] {
+  color: var(--color-text-muted);
+}
+
+.line[data-diff='removed'] .copy {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}

@@ -1,0 +1,9 @@
+import type { SVGProps } from 'react';
+
+export function UnderlineIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M7 4v7a5 5 0 0 0 10 0V4M5 20h14" />
+    </svg>
+  );
+}

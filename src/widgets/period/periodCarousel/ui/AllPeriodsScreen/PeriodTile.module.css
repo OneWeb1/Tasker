@@ -1,0 +1,95 @@
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 18px 16px 16px;
+  border: 1px solid color-mix(in srgb, var(--period-from) 28%, var(--color-border));
+  border-radius: 28px;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--period-from) 22%, var(--color-surface)),
+    color-mix(in srgb, var(--period-to) 8%, var(--color-surface))
+  );
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.tile:active {
+  transform: scale(0.98);
+}
+
+.tile[data-active='true'] {
+  border-color: var(--color-primary-accent);
+  box-shadow: 0 0 0 1px var(--color-primary-accent);
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.badge {
+  flex: none;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+}
+
+.chip {
+  position: relative;
+  flex: none;
+  width: 72px;
+  height: 52px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--period-from), var(--period-to));
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+.tile[data-status='finished'] .chip {
+  filter: grayscale(0.8) brightness(0.8);
+}
+
+.chipFill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.name {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text-muted);
+}
+
+.value {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.range {
+  margin-top: auto;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+}

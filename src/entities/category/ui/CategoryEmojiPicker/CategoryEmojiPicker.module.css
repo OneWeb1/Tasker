@@ -1,0 +1,17 @@
+.emojis {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.emoji {
+  min-height: 44px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-size: 22px;
+}
+
+.emoji[aria-checked='true'] {
+  border-color: var(--color-primary);
+}

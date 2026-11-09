@@ -1,0 +1,85 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.month {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  aspect-ratio: 1;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 13px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.month:active {
+  background: var(--color-border);
+}
+
+.month:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--color-control-bg);
+  color: var(--color-text-muted);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.label {
+  position: relative;
+}
+
+.month[data-selected='true'] {
+  background: color-mix(in srgb, var(--color-primary-accent) 28%, var(--color-bg));
+  color: var(--color-text);
+}
+
+.month[data-selected='true'] .icon {
+  background: var(--color-primary-accent);
+  color: #ffffff;
+}
+
+.month[data-current='true']::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  border-radius: 50%;
+  background: var(--color-primary-accent);
+}
+
+.month[data-selected='true'][data-current='true']::after {
+  background: var(--color-text);
+}

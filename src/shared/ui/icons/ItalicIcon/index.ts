@@ -1,0 +1,1 @@
+export { ItalicIcon } from './ItalicIcon';

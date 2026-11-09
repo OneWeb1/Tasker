@@ -1,0 +1,1 @@
+export { NoteAttachmentCaption } from './NoteAttachmentCaption';

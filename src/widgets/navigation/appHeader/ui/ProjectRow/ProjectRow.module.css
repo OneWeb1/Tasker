@@ -1,0 +1,114 @@
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 54px;
+  padding: 5px 14px 5px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.row:active {
+  background: var(--color-control-bg);
+}
+
+.row[aria-current='true'] {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+}
+
+.row[data-selected='true'] {
+  border-color: transparent;
+  background: var(--selected-surface);
+  background-origin: border-box;
+  box-shadow: var(--nav-shadow);
+}
+
+.row:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.emoji {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--color-surface);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.row[aria-current='true'] .emoji,
+.row[data-selected='true'] .emoji {
+  background: var(--color-bg);
+}
+
+.text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meta {
+  overflow: hidden;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-muted);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.check,
+.activeMark {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: var(--color-primary-contrast);
+}
+
+.check {
+  border: 2px solid var(--color-text-muted);
+}
+
+.check[data-checked='true'] {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+}
+
+.activeMark {
+  background: var(--color-primary);
+}

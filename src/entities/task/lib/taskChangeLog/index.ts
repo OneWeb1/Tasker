@@ -1,0 +1,1 @@
+export { appendFieldChanges } from './taskChangeLog';

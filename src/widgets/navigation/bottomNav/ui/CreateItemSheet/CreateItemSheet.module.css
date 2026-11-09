@@ -1,0 +1,22 @@
+.task,
+.note,
+.category,
+.plan {
+  display: inline-flex;
+}
+
+.plan {
+  color: #34c28b;
+}
+
+.task {
+  color: #3b9bff;
+}
+
+.note {
+  color: #f5b82e;
+}
+
+.category {
+  color: #5b6cf0;
+}

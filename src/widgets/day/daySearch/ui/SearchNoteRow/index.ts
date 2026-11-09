@@ -1,0 +1,1 @@
+export { SearchNoteRow } from './SearchNoteRow';

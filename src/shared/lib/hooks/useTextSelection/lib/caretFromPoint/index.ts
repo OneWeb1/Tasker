@@ -1,0 +1,1 @@
+export { caretFromPoint, caretInRoot } from './caretFromPoint';

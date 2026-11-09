@@ -1,0 +1,1 @@
+export { extendRange, isOrdered, rangeBetween } from './selectionRange';

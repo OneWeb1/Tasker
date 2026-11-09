@@ -1,0 +1,305 @@
+.shell {
+  display: flex;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100dvh;
+}
+
+.stage[data-motion] {
+  overflow: clip;
+}
+
+:root[data-edge-swiping='true'] .stage {
+  overflow: clip;
+}
+
+:root[data-edge-swiping='true'] .layer[data-fullscreen='true'][data-role='enter'] > * {
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-edge-swiping='true'] .layer[data-role='backdrop'] {
+  visibility: visible;
+}
+
+.layer[data-role='backdrop'] {
+  visibility: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100dvh;
+  margin-bottom: -100dvh;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(calc(-28% * (1 - var(--edge-swipe-progress, 0))), 0, 0);
+}
+
+.layer[data-role='backdrop']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: calc(0.28 * (1 - var(--edge-swipe-progress, 0)));
+  pointer-events: none;
+}
+
+.stage > header[data-role='backdrop'],
+.stage > nav[data-role='backdrop'] {
+  visibility: hidden;
+  z-index: 0;
+  pointer-events: none;
+  transform: translate3d(calc(-28% * (1 - var(--edge-swipe-progress, 0))), 0, 0);
+}
+
+.stage > header[data-role='backdrop'] *,
+.stage > nav[data-role='backdrop'] * {
+  pointer-events: none;
+}
+
+:root[data-edge-swiping='true'] .stage > header[data-role='backdrop'],
+:root[data-edge-swiping='true'] .stage > nav[data-role='backdrop'] {
+  visibility: visible;
+}
+
+.layer {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100dvh;
+  padding: calc(var(--safe-top) + var(--app-header-height) + var(--page-padding-y))
+    var(--page-padding-x) calc(var(--bottom-nav-height) + var(--safe-bottom) + 24px);
+  background: var(--color-bg);
+}
+
+.layer[data-with-nav='false'] {
+  padding-bottom: calc(var(--safe-bottom) + 24px);
+}
+
+.layer[data-fullscreen='true'] {
+  z-index: 2;
+  padding: 0;
+  background: transparent;
+}
+
+.layer[data-role='exit'] {
+  position: absolute;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.layer[data-role='peek'] {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 100dvh;
+  margin-bottom: -100dvh;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translate3d(100vw, 0, 0);
+  will-change: transform;
+}
+
+:root[data-edge-swiping='true'] .stage > div[data-role='enter']:not([data-fullscreen='true']),
+:root[data-edge-swiping='true'] .stage > div[data-role='peek'],
+:root[data-edge-swiping='true'] .stage > header[data-role='enter'],
+:root[data-edge-swiping='true'] .stage > header[data-role='peek'] {
+  will-change: transform;
+  contain: paint;
+}
+
+:root {
+  --underlay-duration: 0.36s;
+}
+
+:root:has([data-shift-below]) {
+  --underlay-shift: 0;
+}
+
+:root:has([data-shift-below]:not([data-closing='true'])) {
+  --underlay-shift: calc(1 - var(--edge-swipe-progress, 0));
+}
+
+:root:has([data-shift-below]) .stage {
+  overflow: clip;
+}
+
+:root:has([data-shift-below]) .stage > :is(
+    .layer[data-role='enter']:not([data-fullscreen='true']),
+    header:not([data-role='exit']):not([data-role='backdrop']):not([data-role='peek']),
+    nav:not([data-role='exit']):not([data-role='backdrop'])
+  ) {
+  transform: translate3d(calc(-100% * var(--underlay-shift, 0)), 0, 0);
+  transition: transform var(--underlay-duration) cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+:root[data-edge-swiping='true'] .stage > :is(
+    .layer[data-role='enter']:not([data-fullscreen='true']),
+    header:not([data-role='exit']):not([data-role='backdrop']):not([data-role='peek']),
+    nav:not([data-role='exit']):not([data-role='backdrop'])
+  ) {
+  transition: none;
+}
+
+.screens {
+  display: contents;
+}
+
+.stage:has(> .screens > [data-shift-below]) > .layer[data-fullscreen='true'][data-role='enter'] {
+  transform: translate3d(calc(-100% * var(--screens-shift, 0)), 0, 0);
+  transition: transform var(--underlay-duration) cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stage:has(> .screens > [data-shift-below]:not([data-closing='true'])) {
+  --screens-shift: calc(1 - var(--edge-swipe-progress, 0));
+}
+
+:root[data-edge-swiping='true'] .stage > .layer[data-fullscreen='true'][data-role='enter'] {
+  transition: none;
+}
+
+.stage[data-motion='forward'] > [data-role='enter'] {
+  z-index: 1;
+  animation: slide-in 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stage[data-motion='forward'] > [data-role='exit'] {
+  z-index: 1;
+  animation: slide-out-left 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.stage[data-motion='backward'] > [data-role='enter'] {
+  z-index: 1;
+  animation: slide-in-left 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stage[data-motion='backward'] > [data-role='exit'] {
+  z-index: 1;
+  animation: slide-out 0.3s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.stage[data-motion='push'] > [data-role='enter'] {
+  z-index: 2;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+  animation: slide-in 0.34s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stage[data-motion='push'] > [data-role='exit'] {
+  z-index: 1;
+  animation: shift-out 0.34s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.stage[data-motion='pop'] > [data-role='enter'] {
+  z-index: 1;
+  animation: shift-in 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.stage[data-motion='pop'] > [data-role='exit'] {
+  z-index: 2;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.12);
+  animation: slide-out 0.28s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.stage[data-motion='push'] > .layer[data-role='exit']::after,
+.stage[data-motion='pop'] > .layer[data-role='enter']::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  pointer-events: none;
+}
+
+.stage[data-motion='push'] > .layer[data-role='exit']::after {
+  animation: dim-in 0.34s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.stage[data-motion='pop'] > .layer[data-role='enter']::after {
+  animation: dim-out 0.34s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes slide-out-left {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes slide-out {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shift-out {
+  to {
+    transform: translateX(-28%);
+  }
+}
+
+@keyframes shift-in {
+  from {
+    transform: translateX(-28%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes dim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.28;
+  }
+}
+
+@keyframes dim-out {
+  from {
+    opacity: 0.28;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.stage > [data-over-drawer='true'][data-role] {
+  z-index: 50;
+}
+
+.stage > .layer[data-fullscreen='true'] {
+  z-index: 100;
+}
+
+.stage[data-overlay='true'] > .layer[data-role='backdrop'],
+.stage[data-overlay='true'] > header[data-role='backdrop'],
+.stage[data-overlay='true'] > nav[data-role='backdrop'] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --underlay-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,62 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.badge[data-icon='true'] {
+  gap: 4px;
+}
+
+.badge[data-empty='true'] {
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+}
+
+.badge[data-priority='low'] {
+  background: color-mix(in srgb, var(--color-growth) 16%, transparent);
+  color: var(--color-growth);
+}
+
+.badge[data-priority='medium'] {
+  background: color-mix(in srgb, var(--color-yellow) 16%, transparent);
+  color: var(--color-yellow);
+}
+
+.badge[data-priority='high'] {
+  background: color-mix(in srgb, var(--color-hot) 16%, transparent);
+  color: var(--color-hot);
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mark[data-priority='low'] {
+  background: color-mix(in srgb, var(--color-growth) 18%, transparent);
+  color: var(--color-growth);
+}
+
+.mark[data-priority='medium'] {
+  background: color-mix(in srgb, var(--color-yellow) 18%, transparent);
+  color: var(--color-yellow);
+}
+
+.mark[data-priority='high'] {
+  background: color-mix(in srgb, var(--color-hot) 18%, transparent);
+  color: var(--color-hot);
+}

@@ -1,0 +1,238 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.heading {
+  margin: 0;
+  padding: 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-other);
+}
+
+.nameField {
+  position: relative;
+  display: block;
+  padding: 4px 12px;
+}
+
+.nameInput {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 56px 12px 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 18px;
+}
+
+.nameInput::placeholder {
+  color: var(--color-text-muted);
+}
+
+.nameInput:focus-visible {
+  border-bottom-color: var(--color-other);
+  outline: none;
+}
+
+.counter {
+  position: absolute;
+  right: 12px;
+  bottom: 18px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 14px;
+  min-height: 56px;
+  padding: 8px 12px;
+}
+
+[data-menu-group] > .row + .row::before,
+[data-menu-group] > .row + .swatches::before,
+[data-menu-group] > .actionRow + .actionRow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 12px;
+  left: 59px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+[data-menu-group] > .row + .swatches::before {
+  left: 12px;
+}
+
+.tile {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 33px;
+  height: 33px;
+  border-radius: 12px;
+  background: var(--color-other);
+  color: #ffffff;
+}
+
+.tile[data-tone='theme'] {
+  background: var(--color-purple);
+}
+
+.tile[data-tone='calendar'] {
+  background: var(--color-other);
+}
+
+.tile[data-tone='accent'] {
+  background: var(--color-primary-accent);
+}
+
+.swatches {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 14px 16px;
+}
+
+.swatch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--swatch-color);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.swatch[aria-checked='true'],
+.swatch[data-selected='true'] {
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    0 0 0 4px var(--swatch-color);
+}
+
+.swatchCustom {
+  position: relative;
+  background: conic-gradient(#ef4444, #f59e0b, #22c55e, #3b82f6, #8b5cf6, #ef4444);
+}
+
+.swatchCustom[data-selected='true'] {
+  background: var(--swatch-color);
+}
+
+.colorInput {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.swatch:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.tile[data-tone='danger'] {
+  background: var(--color-hot);
+}
+
+.tile[data-tone='history'] {
+  background: var(--color-teal);
+}
+
+.actionRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 14px;
+  width: 100%;
+  min-height: 56px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.actionRow:active {
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+}
+
+.actionRow:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.confirmText {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.confirmActions {
+  display: flex;
+  gap: 8px;
+}
+
+.rowBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rowTitle {
+  font-size: 16px;
+}
+
+.rowCaption {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

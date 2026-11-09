@@ -1,0 +1,1 @@
+export { useArchiveNote } from './model/hooks/useArchiveNote';

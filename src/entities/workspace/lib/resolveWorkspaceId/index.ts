@@ -1,0 +1,1 @@
+export { resolveWorkspaceId } from './resolveWorkspaceId';

@@ -1,0 +1,25 @@
+.handle {
+  position: fixed;
+  z-index: 125;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.drop {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border-radius: 0 50% 50% 50%;
+  background: var(--color-primary-accent);
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.35);
+  transform: rotate(45deg);
+  transform-origin: center;
+}

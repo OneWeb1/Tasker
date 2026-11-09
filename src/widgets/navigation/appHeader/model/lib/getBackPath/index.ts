@@ -1,0 +1,1 @@
+export { getBackPath } from './getBackPath';

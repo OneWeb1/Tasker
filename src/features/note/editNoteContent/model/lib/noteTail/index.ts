@@ -1,0 +1,1 @@
+export { focusNoteTail, isBelowNoteBlocks } from './noteTail';

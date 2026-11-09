@@ -1,0 +1,1 @@
+export { createCaretAnchor, isBlockBlank, pruneCaretAnchors, stripCaretAnchor } from './noteAnchor';

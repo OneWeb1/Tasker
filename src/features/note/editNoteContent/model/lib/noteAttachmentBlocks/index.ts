@@ -1,0 +1,1 @@
+export { insertAttachmentsBlock, syncAttachmentBlocks } from './noteAttachmentBlocks';

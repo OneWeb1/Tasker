@@ -1,0 +1,1 @@
+export { SparklesIcon } from './SparklesIcon';

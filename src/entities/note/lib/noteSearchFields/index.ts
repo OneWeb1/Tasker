@@ -1,0 +1,1 @@
+export { getNoteSearchFields } from './getNoteSearchFields';

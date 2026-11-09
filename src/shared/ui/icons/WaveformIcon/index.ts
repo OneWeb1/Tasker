@@ -1,0 +1,1 @@
+export { WaveformIcon } from './WaveformIcon';

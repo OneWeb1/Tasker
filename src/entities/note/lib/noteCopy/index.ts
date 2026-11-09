@@ -1,0 +1,1 @@
+export { buildNoteCopy } from './noteCopy';

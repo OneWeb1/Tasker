@@ -1,0 +1,1 @@
+export { focusTextOnTap } from './focusTextOnTap';

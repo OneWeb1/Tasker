@@ -1,0 +1,1 @@
+export { reloadApp } from './reloadApp';

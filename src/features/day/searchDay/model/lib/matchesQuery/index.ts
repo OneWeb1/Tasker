@@ -1,0 +1,1 @@
+export { matchesQuery } from './matchesQuery';

@@ -1,0 +1,1 @@
+export { PeriodDotsSwitch } from './PeriodDotsSwitch';

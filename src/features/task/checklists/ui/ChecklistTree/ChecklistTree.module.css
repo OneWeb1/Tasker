@@ -1,0 +1,143 @@
+.tree {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  --indent: 28px;
+
+  --line: 22px;
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-inline-start: calc(var(--depth, 0) * var(--indent));
+  padding: 12px 16px 12px 2px;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.row[data-selected='true'],
+.row[data-editing='true'] {
+  border-color: var(--color-primary-accent);
+}
+
+.row {
+  --diff-sign-offset: calc(var(--depth, 0) * var(--indent));
+  --diff-sign-height: 48px;
+
+  position: relative;
+}
+
+.row[data-diff='removed'] .name {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.row[data-selected='true'] {
+  position: relative;
+  z-index: 2;
+  background: var(--color-bg);
+}
+
+.gutter {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: var(--line);
+}
+
+.box {
+  display: flex;
+  flex: none;
+  align-items: center;
+  height: var(--line);
+}
+
+.expand {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.expand svg {
+  transition: transform 0.2s ease;
+}
+
+.expand[aria-expanded='false'] svg {
+  transform: rotate(-90deg);
+}
+
+.expand:focus-visible,
+.add:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.ghostBox {
+  box-sizing: border-box;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: var(--line);
+  overflow-wrap: anywhere;
+}
+
+.row[data-done='true'] .name {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 48px;
+  padding: 0 0 0 8px;
+  border: 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expand svg {
+    transition: none;
+  }
+}

@@ -1,0 +1,1 @@
+export { SubtaskIcon } from './SubtaskIcon';

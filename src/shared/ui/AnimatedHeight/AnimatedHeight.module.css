@@ -1,0 +1,22 @@
+.container {
+  overflow: hidden;
+  will-change: height;
+}
+
+.container[data-ready='true'] {
+  transition: height 0.225s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.container[data-ready='true'][data-following='true'] {
+  transition: none;
+}
+
+.content {
+  display: flow-root;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container[data-ready='true'] {
+    transition: none;
+  }
+}

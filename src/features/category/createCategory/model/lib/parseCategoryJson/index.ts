@@ -1,0 +1,1 @@
+export { parseCategoryJson } from './parseCategoryJson';

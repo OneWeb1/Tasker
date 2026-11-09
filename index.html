@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content" />
+  <title>Tasker</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  <link rel="apple-touch-icon" href="/icon.svg" />
+  <meta name="theme-color" content="#101010" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Tasker" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx">
+  </script>
+  <script>
+  window.addEventListener('error', function (e) {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<pre style="color:red;white-space:pre-wrap;padding:8px">' +
+      e.message + '\n' + (e.filename || '') + ':' + (e.lineno || '') + '</pre>');
+  });
+  window.addEventListener('unhandledrejection', function (e) {
+    document.body.insertAdjacentHTML('afterbegin',
+      '<pre style="color:red;white-space:pre-wrap;padding:8px">' + e.reason + '</pre>');
+  });
+</script>
+<script>
+  function renderErrorBox(title, body) {
+    var errorText = title + '\n\n' + body;
+
+    document.body.innerHTML =
+      '<div style="padding:16px;background:#0b0d12;color:#f87171;font-family:monospace;">' +
+
+        '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">' +
+
+          '<button id="copy-error-btn" ' +
+            'type="button" ' +
+            'aria-label="Копіювати інформацію про помилку" ' +
+            'title="Копіювати помилку" ' +
+            'style="' +
+              'display:inline-flex;' +
+              'align-items:center;' +
+              'justify-content:center;' +
+              'width:36px;' +
+              'height:36px;' +
+              'padding:0;' +
+              'border:1px solid #303642;' +
+              'border-radius:8px;' +
+              'background:#13161d;' +
+              'color:#e5e7eb;' +
+              'cursor:pointer;' +
+              'font-size:14px;' +
+            '">' +
+            '<i class="fa-regular fa-copy"></i>' +
+          '</button>' +
+
+          '<span id="copy-error-status" style="font-size:12px;color:#9ca3af;"></span>' +
+
+        '</div>' +
+
+        '<pre id="error-content" style="' +
+          'white-space:pre-wrap;' +
+          'word-break:break-word;' +
+          'margin:0;' +
+          'color:#f87171;' +
+          'font-size:12px;' +
+          'line-height:1.5;' +
+        '">' +
+          escapeHtml(errorText) +
+        '</pre>' +
+
+      '</div>';
+
+    var copyButton = document.getElementById('copy-error-btn');
+    var copyStatus = document.getElementById('copy-error-status');
+
+    copyButton.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(errorText);
+
+        copyStatus.textContent = 'Скопійовано';
+        copyStatus.style.color = '#4ade80';
+
+        copyButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+
+        setTimeout(function () {
+          copyButton.innerHTML = '<i class="fa-regular fa-copy"></i>';
+          copyStatus.textContent = '';
+          copyStatus.style.color = '#9ca3af';
+        }, 1500);
+
+      } catch (err) {
+        copyStatus.textContent = 'Не вдалося скопіювати';
+        copyStatus.style.color = '#f87171';
+
+        console.error('Clipboard error:', err);
+      }
+    });
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  window.addEventListener('error', function (e) {
+    var header =
+      'ERROR: ' + (e.message || '') + '\n' +
+      'FILE: ' + (e.filename || '') + ':' +
+      (e.lineno || '') + ':' +
+      (e.colno || '') + '\n' +
+      (e.error && e.error.stack
+        ? '\nSTACK:\n' + e.error.stack
+        : '');
+
+    renderErrorBox('Завантаження...', header);
+
+    if (e.filename && e.filename.indexOf('http') === 0) {
+      fetch(e.filename)
+        .then(function (res) {
+          return res.text();
+        })
+        .then(function (source) {
+          var lines = source.split('\n');
+          var line = e.lineno || 1;
+          var col = e.colno || 0;
+          var from = Math.max(0, line - 6);
+          var to = Math.min(lines.length, line + 5);
+          var snippet = '';
+
+          for (var i = from; i < to; i++) {
+            var marker = (i + 1 === line) ? '>> ' : '   ';
+
+            snippet +=
+              marker +
+              (i + 1) +
+              ' | ' +
+              lines[i] +
+              '\n';
+
+            if (i + 1 === line) {
+              snippet +=
+                '     ' +
+                ' '.repeat(String(i + 1).length) +
+                ' | ' +
+                ' '.repeat(Math.max(0, col)) +
+                '^\n';
+            }
+          }
+
+          renderErrorBox(
+            header,
+            'ФРАГМЕНТ КОДУ:\n\n' + snippet
+          );
+        })
+        .catch(function (fetchErr) {
+          renderErrorBox(
+            header,
+            'Не вдалося завантажити вихідний файл: ' +
+            fetchErr.message
+          );
+        });
+    }
+  });
+
+  window.addEventListener('unhandledrejection', function (e) {
+    renderErrorBox(
+      'UNHANDLED PROMISE REJECTION',
+      e.reason && e.reason.stack
+        ? e.reason.stack
+        : String(e.reason)
+    );
+  });
+</script>
+</body>
+</html>

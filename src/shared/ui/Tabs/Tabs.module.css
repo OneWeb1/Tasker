@@ -1,0 +1,221 @@
+.tabs {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  margin: 0 calc(-1 * var(--page-padding-x));
+  padding: 0 var(--page-padding-x);
+  overflow-x: auto;
+  scroll-padding-inline: var(--page-padding-x);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 17px 6px 7px;
+  border: 0;
+  border-radius: 13px;
+  background: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--color-primary-accent) 28%, var(--color-bg))
+      calc(var(--tab-active, 0) * 100%),
+    var(--color-surface)
+  );
+  color: color-mix(
+    in srgb,
+    var(--color-text) calc(var(--tab-active, 0) * 100%),
+    var(--color-text-muted)
+  );
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  background: color-mix(
+    in srgb,
+    var(--color-primary-accent) calc(var(--tab-active, 0) * 100%),
+    var(--color-control-bg)
+  );
+  color: color-mix(in srgb, #ffffff calc(var(--tab-active, 0) * 100%), var(--color-text-muted));
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.count {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+.tab[aria-selected='true'] {
+  --tab-active: 1;
+}
+
+.tabs[data-variant='pill'] .tab {
+  background: var(--color-surface);
+}
+
+.tabs[data-variant='card'] .tab {
+  --tab-card-bg: color-mix(in srgb, var(--color-bg) 95%, white);
+  background: var(--tab-card-bg);
+}
+
+.icon,
+.title,
+.caption {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.caption {
+  display: none;
+}
+
+.tabs[data-variant='underline'] {
+  position: relative;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.tabs[data-variant='underline'] .indicator,
+.tabs[data-variant='text'] .indicator {
+  bottom: 0;
+  height: 2px;
+  background: #ffffff;
+}
+
+.tabs[data-variant='pill'] .indicator,
+.tabs[data-variant='card'] .indicator {
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--color-primary-accent) 28%, var(--color-bg));
+}
+
+.indicator[data-animate='true'] {
+  transition:
+    transform 0.2s cubic-bezier(0.32, 0.72, 0, 1),
+    width 0.2s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.tabs[data-variant='underline'] .tab {
+  flex: 1;
+  justify-content: center;
+  padding: 14px 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 16px;
+}
+
+.tabs[data-variant='underline'] .tab[aria-selected='true'] {
+  background: transparent;
+}
+
+.tabs[data-variant='text'] {
+  gap: 4px;
+  margin: 0;
+  padding: 0 calc(var(--page-padding-x) - 12px);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-screen-header-bg);
+}
+
+.tabs[data-variant='text'] .tab {
+  padding: 16px 12px;
+  border-radius: 0;
+  background: transparent;
+  font-size: 18px;
+}
+
+.tabs[data-variant='text'] .tab[aria-selected='true'] {
+  background: transparent;
+  color: var(--color-text);
+}
+
+.tabs[data-variant='card'] {
+  gap: 10px;
+}
+
+.tabs[data-variant='card'] .tab {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  min-width: 116px;
+  padding: 12px 14px 12px 12px;
+  border-radius: 18px;
+}
+
+.tabs[data-variant='card'] .icon {
+  --tab-icon-bg: color-mix(in srgb, var(--color-bg) 70%, black);
+  background: color-mix(
+    in srgb,
+    var(--color-primary-accent) calc(var(--tab-active, 0) * 100%),
+    var(--tab-icon-bg)
+  );
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+  border-radius: 9px;
+}
+
+.tabs[data-variant='card'] .icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.tabs[data-variant='card'] .title {
+  gap: 6px;
+  font-size: 15px;
+}
+
+.tabs[data-variant='card'] .caption {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.tabs[data-variant='card'] .indicator {
+  border-radius: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator[data-animate='true'] {
+    transition-duration: 0.01ms;
+  }
+}

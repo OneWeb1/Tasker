@@ -1,0 +1,24 @@
+.preview {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  padding-bottom: calc(var(--safe-bottom) + 20px);
+}
+
+.stage {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-control-bg);
+}
+
+.size {
+  margin: 0;
+  font-size: 13px;
+  text-align: center;
+  color: var(--color-text-muted);
+}

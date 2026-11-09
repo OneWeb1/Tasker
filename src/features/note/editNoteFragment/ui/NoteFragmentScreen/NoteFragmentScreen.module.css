@@ -1,0 +1,31 @@
+.body {
+  padding: 16px var(--page-padding-x);
+}
+
+.save {
+  padding: 8px 4px;
+  border: 0;
+  background: transparent;
+  color: var(--color-primary-accent);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.save:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.error {
+  margin: 12px 0 0;
+  color: var(--color-danger, #d93025);
+  font-size: 14px;
+  line-height: 1.4;
+}

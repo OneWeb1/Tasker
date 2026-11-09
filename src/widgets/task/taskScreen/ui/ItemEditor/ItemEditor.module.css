@@ -1,0 +1,33 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px var(--page-padding-x);
+}
+
+.description {
+  padding: 16px var(--page-padding-x);
+  border-top: 1px solid var(--color-border);
+}
+
+.block {
+  padding: 16px var(--page-padding-x);
+  border-top: 1px solid var(--color-border);
+}
+
+.section {
+  padding: 16px var(--page-padding-x) 24px;
+  border-top: 10px solid var(--color-control-bg);
+}
+
+.error {
+  margin: 0;
+  padding: 0 var(--page-padding-x);
+  font-size: 13px;
+  color: var(--color-hot);
+}
+
+.footer {
+  margin-top: auto;
+  padding: 16px var(--page-padding-x) 0;
+}
